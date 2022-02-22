@@ -82,11 +82,12 @@ body {
 /* Нижняя рамка шапки */
 
 .header {
+  /* position: relative; */
+
   border-bottom: 1px solid #ececec;
   padding-top: 24px;
   padding-bottom: 24px;
 }
-
 /* логотип */
 
 .logo {
@@ -112,23 +113,44 @@ body {
 .logo-footer > span {
   color: #2196f3;
 }
-/* навигация хедер  */
+/* НАВИГАЦИЯ ХЕДЕР  */
 
 .nav {
   display: flex;
 }
 .nav-list {
+  position: relative;
   display: flex;
   align-items: center;
   margin-left: 93px;
 }
+/* подчеркивание текущей страницы */
+.header-main-item::before {
+  content: "";
 
+  position: absolute;
+  bottom: -25px;
+  left: 0px;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+.header-portfolio-item::before {
+  content: "";
+
+  position: absolute;
+  bottom: -25px;
+  left: 99px;
+  width: 76px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
 .nav-item + .nav-item {
   margin-left: 50px;
 }
 .nav-link {
-  /* display: block; */
-
   color: var(--title-text-color);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -317,6 +339,7 @@ body {
 .button-hero:focus {
   background-color: var(--button-accent-color);
 }
+
 /* достоинства */
 
 .dignity-list {
@@ -375,11 +398,31 @@ body {
   display: flex;
 }
 .our-work-item {
+  position: relative;
+  display: block;
   /* width: calc((100%-60px) / 3); */
   margin-right: 30px;
 }
 .our-work-image {
   display: block;
+}
+.our-work-thumb {
+  position: absolute;
+  width: 370px;
+  height: 70px;
+  bottom: 3.6px;
+  left: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+.our-work-txt {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
 }
 
 /* Наша команда */
@@ -516,6 +559,38 @@ body {
   fill: var(--accent-color);
 }
 
+/* Модальное окно */
+.backdrop {
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 530px;
+  height: 580px;
+  padding: 15px;
+  background-color: var(--primary-white-color);
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* портфолио кнопки */
 
 .examples-button {
@@ -576,6 +651,34 @@ body {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
+.project-thumb {
+  position: relative;
+}
+.project-hover {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.project-item:hover .project-hover {
+  opacity: 1;
+}
+.project-link:focus .project-hover {
+  opacity: 1;
+}
+
+.project-hover-text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  /* font-weight: 400; */
+  color: var(--primary-white-color);
+}
+
 .project-info {
   padding-top: 20px;
   padding-bottom: 20px;
