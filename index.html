@@ -19,8 +19,8 @@
                 <nav class="nav">
                 <a class="logo" lang="en" href="./index.html"> <span>Web</span>Studio</a>
                 <ul class="nav-list list">
-                    <li class="nav-item header-main-item">
-                        <a class="nav-link link" href="./index.html">Студия</a>
+                    <li class="nav-item">
+                        <a class="nav-link header-main-link link" href="./index.html">Студия</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link" href="./portfolio.html">Портфолио</a>
@@ -54,7 +54,7 @@
                 <h1 class="title-hero">
                 Эффективные решения <br />для вашего бизнеса
             </h1>
-            <button class="button-hero" type="button" data-open-modal> Заказать услугу </button>
+            <button class="button-hero" type="button" data-modal-open> Заказать услугу </button>
             
             </div>
         </section>
@@ -353,30 +353,11 @@
        </div>
     </footer>
            <!-- Модальное окно -->
-    <div class="backdrop is-hidden" data-backdrop>
+    <div class="backdrop is-hidden" data-modal>
         <div class="modal">
-            <button class="modal-close" data-close-modal>&#9747;</button>
+            <button class="modal-close" data-modal-close>&#9747;</button>
         </div>
             <!-- Скрипт для модалки -->
-<script>
-    const refs = {
-        openModalBtn: document.querySelector("[data-open-modal]"),
-        closeModalBtn: document.querySelector("[data-close-modal]"),
-        backdrop: document.querySelector("[data-backdrop]"),
-    };
-
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    refs.closeModalBtn.addEventListener("click", toggleModal);
-
-    refs.backdrop.addEventListener("click", logBackdropClick);
-
-    function toggleModal() {
-        refs.backdrop.classList.toggle("is-hidden");
-    }
-
-    function logBackdropClick() {
-        console.log("Это клик в бекдроп");
-    }
-</script>
+<script src="./JS/modal.js"></script>
 </body>
 </html>
